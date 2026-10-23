@@ -1,0 +1,16 @@
+Part 4: Reflection Questions (Answers)
+
+1. What information was visible when you followed the Telnet TCP stream?
+Answer: The entire session was visible in plaintext. This included the username, the password, and the command (whoami) that was typed.
+
+2. What changed when you followed the SSH TCP stream?
+Answer: The data appeared as unreadable, encrypted characters. You could not see the username, password, or the commands that were executed.
+
+3. Why is sending authentication information over an unencrypted session dangerous?
+Answer: Because anyone monitoring the network (like an attacker on a Wi-Fi network) can intercept the packets and read the password in plaintext, allowing them to steal the credentials and access the system.
+
+4. What security property does SSH provide that Telnet does not?
+Answer: SSH provides encryption (confidentiality) for the entire session, whereas Telnet provides none.
+
+5. Why should packet captures containing credentials never be uploaded to a public GitHub repository?
+Answer: Because packet capture files (like .pcapng) contain the raw data of the session. If it's a Telnet capture, the passwords are in plaintext. If someone downloads the file, they can easily extract the credentials and compromise the accounts.

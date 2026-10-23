@@ -1,0 +1,26 @@
+# Commands used in the Telnet vs SSH Wireshark lab
+# Record the exact commands you ran, in order. Redact anything sensitive.
+
+## --- Part 1: Telnet ---
+wireshark &                 # launch Wireshark, select "lo", start capture
+telnet localhost            # connect to local Telnet service (second terminal)
+whoami                      # harmless test command inside the session
+exit                        # end the Telnet session
+
+# Wireshark display filter
+telnet
+# Then: right-click packet -> Follow -> TCP Stream
+
+## --- Part 2: SSH ---
+# Start a fresh capture on "lo"
+ssh localhost               # connect to local SSH service (second terminal)
+whoami                      # harmless test command inside the session
+exit                        # end the SSH session
+
+# Wireshark display filter
+ssh
+# Then: right-click packet -> Follow -> TCP Stream
+
+## --- Optional: verify services before starting ---
+# systemctl status ssh
+# ss -tlnp | grep -E ':(22|23)\b'
